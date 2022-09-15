@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login: Sistem Amaran Kebakaran Pintar</title>
+    <link rel="Icon" type="Icon" href="ico.png">
+
+    <!-- Custom fonts for this template-->
+    <link href="/ifutem/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/call-of-ops-duty" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <script>
+        function validate() {
+            var fullname =
+                document.forms.RegForm.fullname.value;
+            var username =
+                document.forms.RegForm.username.value;
+            var phone =
+                document.forms.RegForm.phone.value;
+            var email =
+                document.forms.RegForm.email.value;
+            var location =
+                document.forms.RegForm.location.value;
+            var password =
+                document.forms.RegForm.password.value;
+            var repassword =
+                document.forms.RegForm.repassword.value;
+            var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g; //Javascript reGex for Email Validation.
+            var regPhone=/^\d{10}$/;									 // Javascript reGex for Phone Number validation.
+            var regName = /\d+$/g;								 // Javascript reGex for Name validation
+
+            if (fullname == "" || regName.test(fullname)) {
+                error = " You Have To Write Your Fullname. ";
+                document.getElementById( "error_para" ).innerHTML = error;
+                return false;
+            }
+
+            if (address == "") {
+                 error = " You Have To Write Your Address. ";
+                  document.getElementById( "error_para" ).innerHTML = error;
+                  return false;
+            }
+            
+            if (email == "" || !regEmail.test(email)) {
+                window.alert("Please enter a valid e-mail address.");
+                email.focus();
+                return false;
+            }
+            
+            if (password == "") {
+                alert("Please enter your password");
+                password.focus();
+                return false;
+            }
+
+            if(password.length <6){
+                alert("Password should be atleast 6 character long");
+                password.focus();
+                return false;
+
+            }
+            if (phone == "" || !regPhone.test(phone)) {
+                alert("Please enter valid phone number.");
+                phone.focus();
+                return false;
+            }
+
+            if (what.selectedIndex == -1) {
+                alert("Please enter your course.");
+                what.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</head>
+
+<body class="bg-gradient-secondary">
+
+    <nav class="login-nav">
+        <img src="/ifutem/ifutem/img/LOGO.png">
+        <a class="font-weight-bold float-right active" href="register.html" title="Register">Register</a>
+        <a class="font-weight-bold float-right" href="login.html" title="Login">Login</a>
+        <a class="font-weight-bold float-right" href="contact.html" title="Contact">Contact</a>
+        <a class="font-weight-bold float-right" href="usermanual.html" title="User Manual">User Manual</a>
+        <a class="font-weight-bold float-right" href="buildings.html" title="Buildings">Buildings</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center " >
+
+            <div class="col-xl-6 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5" >
+
+                        <!-- Nested Row within Card Body -->
+                        <div class="row" >
+
+                            <div class="col-lg-12 color-white">
+                                <div class="p-5">
+
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4 font-weight-bold">REGISTER</h1>
+                                        <p id="error_para" ></p>
+                                    </div>
+
+                                    <form class="user" name="RegForm" onsubmit="return validate()" method="post">
+                                        <div class="form-group">
+                                            <input type="fullname" class="form-control form-control-user"
+                                                id="fullname" name="fullname"
+                                                placeholder="FullName">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="username" class="form-control form-control-user"
+                                                id="username" name="username"
+                                                placeholder="UserName">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="phone" class="form-control form-control-user"
+                                                id="phone" name="phone"
+                                                placeholder="Phone Number">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                id="email" name="email"
+                                                placeholder="Email">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="location" class="form-control form-control-user"
+                                                id="location" name = " location"
+                                                placeholder="location">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="password" name= "password"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="repassword" name="repassword"
+                                                placeholder="Password">
+                                        </div>
+                                    
+                                     
+                                        <input type="register" class="btn btn-secondary btn-user btn-block"
+					                            value="Register" name="register" />
+                                        
+                                    </form>
+
+                                    <hr>
+
+                                    <div class="text-center">
+                                        <a class="small" href="login.html">Already have an account?</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="sticky-footer color-red">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Ingeniouscity Solution Engineering 2022</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="ifutem/vendor/jquery/jquery.min.js"></script>
+    <script src="ifutem/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="ifutem/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="ifutem/js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

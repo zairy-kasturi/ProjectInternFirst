@@ -1,0 +1,38 @@
+<?php
+require_once "inc/config.php";
+
+if(isset($_POST['submit_form']))
+{
+	 function validate_data($data)
+	 {
+	  $data = trim($data);
+	  $data = stripslashes($data);
+	  $data = strip_tags($data);
+	  $data = htmlspecialchars($data);
+	  return $data;    
+	 }
+
+	 $error = "" ;
+	 $fullname = validate_data( $_POST['FullName'] );
+	 $username = validate_data( $_POST['UserName'] );
+	 $phone = validate_data( $_POST['Telephone'] );
+	 $email = validate_data( $_POST['EMail'] );
+	 $location = validate_data( $_POST['Location'] );
+	 $password = validate_data( $_POST['Password'] );
+
+	 $sql2 = "INSERT INTO user (FullName,UserName,Password,Phone,Email,LocationAccess) VALUES('$fullname','$username','$password','$phone','$email','$location')";
+	 $result2 = mysqli_query($conn, $sql2);
+	 if ($result2) 
+	 {
+		header("Location: register.php?error=Your account has been created successfully");
+			//header("Location: index.php");
+			//exit();
+	 }
+	 else 
+	 {
+		header("Location: register.php?error=Unknown error occurred");
+		
+	 } 
+  
+}
+?>
